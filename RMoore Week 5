@@ -1,0 +1,52 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+class Item {
+private:
+  string name;
+  int quantity;
+
+public:
+  Item(string n = "", int q = 0){
+  name = n;
+  quantity = q;
+}
+
+void saveToFile() {
+  ofstream outFile("items.txt", ios::app)
+if (!outfile) {
+  cout << "Error opening file for writing!" << endl;
+  return;
+}
+outFile << name << ", " << quantity < endl;
+outFile.close();
+cout << "Item saved successfully to file." << endl;
+}
+voidloadFromFile() {
+  ifstream inFile("items.txt");
+  if (!inFile) { 
+    cout << "Error opening file for reading!" << endl;
+    return;
+}
+
+  string line;
+  cout << "\nItems in file:\n";
+  while (getline(inFile, line)) {
+    cout << line << endl;
+  }
+  inFile.close();
+  }
+};
+
+int main() {
+Item myItem("Laptop", 5);
+
+myItem.saveToFile():
+myItem.loadFromFile();
+
+return 0;
+}
+
+
